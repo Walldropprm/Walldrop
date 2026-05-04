@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WallDrop | Premium 4K Phone Wallpapers</title>
+  <meta name="description" content="Premium 4K phone wallpapers. Dark, clean, cinematic designs for iPhone & Android. Instant downloads." />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #09090b;
+      color: white;
+    }
+    a { color: inherit; text-decoration: none; }
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(9,9,11,.9);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      backdrop-filter: blur(12px);
+      z-index: 10;
+    }
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: .5px;
+    }
+    .links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      color: #d4d4d8;
+    }
+    .btn {
+      display: inline-block;
+      border: none;
+      border-radius: 18px;
+      background: white;
+      color: #09090b;
+      padding: 13px 18px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .btn.dark {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,.25);
+    }
+    .hero {
+      max-width: 1150px;
+      margin: auto;
+      padding: 80px 22px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 45px;
+      align-items: center;
+    }
+    .pill {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      padding: 10px 15px;
+      color: #d4d4d8;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 60px;
+      line-height: 1.02;
+      margin: 0;
+    }
+    .hero p {
+      color: #d4d4d8;
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 620px;
+    }
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .phone-box {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
+      border-radius: 32px;
+      padding: 24px;
+      box-shadow: 0 25px 80px rgba(0,0,0,.4);
+    }
+    .phone {
+      height: 540px;
+      max-width: 280px;
+      margin: auto;
+      border-radius: 42px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: #18181b;
+      padding: 14px;
+    }
+    .screen {
+      height: 100%;
+      border-radius: 32px;
+      background: radial-gradient(circle at 30% 20%, #9333ea, transparent 35%),
+                  linear-gradient(135deg, #27272a, #3b0764, #000);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .speaker {
+      height: 22px;
+      width: 95px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.45);
+      margin: 0 auto;
+    }
+    .phone-text {
+      text-align: center;
+      margin-top: 150px;
+    }
+    .phone-text span {
+      letter-spacing: .28em;
+      font-size: 12px;
+      color: #e4e4e7;
+      text-transform: uppercase;
+    }
+    .phone-text h2 {
+      font-size: 38px;
+      margin: 12px 0 6px;
+    }
+    .phone-card {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 25px;
+      background: rgba(255,255,255,.13);
+      border-radius: 20px;
+      padding: 16px;
+    }
+    .phone-card strong {
+      display: block;
+      font-size: 28px;
+      margin-top: 4px;
+    }
+    section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 55px 22px;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 42px;
+      margin: 0 0 10px;
+    }
+    .muted { color: #a1a1aa; }
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .category {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.06);
+      border-radius: 22px;
+      padding: 22px;
+      font-weight: 900;
+    }
+    .packs {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 22px;
+      margin-top: 35px;
+      text-align: left;
+    }
+    .card {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 55px rgba(0,0,0,.35);
+    }
+    .preview {
+      height: 245px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .preview span {
+      width: fit-content;
+      border-radius: 999px;
+      background: rgba(255,255,255,.15);
+      padding: 7px 11px;
+      font-size: 12px;
+    }
+    .preview h3 {
+      font-size: 25px;
+      margin: 0 0 5px;
+    }
+    .preview p {
+      margin: 0;
+      color: #d4d4d8;
+    }
+    .p1 { background: linear-gradient(135deg,#18181b,#581c87,#020617); }
+    .p2 { background: linear-gradient(135deg,#111827,#7f1d1d,#030712); }
+    .p3 { background: linear-gradient(135deg,#18181b,#064e3b,#020617); }
+    .p4 { background: linear-gradient(135deg,#000,#854d0e,#27272a); }
+    .card-body {
+      padding: 20px;
+    }
+    .card-body p {
+      color: #c4c4c8;
+      line-height: 1.5;
+    }
+    .price {
+      display: block;
+      font-size: 28px;
+      font-weight: 900;
+      margin: 14px 0;
+    }
+    .card .btn {
+      width: 100%;
+      text-align: center;
+    }
+    .how, .cta {
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.05);
+      border-radius: 32px;
+      padding: 40px;
+      box-shadow: 0 25px 70px rgba(0,0,0,.35);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+      margin-top: 30px;
+      text-align: left;
+    }
+    .step {
+      background: rgba(255,255,255,.06);
+      border-radius: 22px;
+      padding: 22px;
+    }
+    .number {
+      display: flex;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .cta {
+      background: linear-gradient(135deg, rgba(88,28,135,.72), rgba(24,24,27,.95));
+    }
+    footer {
+      border-top: 1px solid rgba(255,255,255,.1);
+      text-align: center;
+      color: #71717a;
+      padding: 30px;
+    }
+    @media (max-width: 900px) {
+      .links { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 55px; }
+      h1 { font-size: 42px; }
+      .categories, .packs, .steps { grid-template-columns: 1fr; }
+      section h2 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">WallDrop</div>
+      <div class="links">
+        <a href="#packs">Wallpaper Packs</a>
+        <a href="#categories">Categories</a>
+        <a href="#how">How It Works</a>
+      </div>
+      <a class="btn" href="#packs">Shop Now</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <div class="pill">Premium phone wallpapers • Instant digital download</div>
+        <h1>Make your phone look different from everybody else’s.</h1>
+        <p>Premium 4K phone wallpapers. Dark, clean, cinematic designs for iPhone & Android. Instant downloads.</p>
+        <div class="actions">
+          <a class="btn" href="#packs">Browse Wallpapers</a>
+          <a class="btn dark" href="#categories">View Styles</a>
+        </div>
+      </div>
+
+      <div class="phone-box">
+        <div class="phone">
+          <div class="screen">
+            <div class="speaker"></div>
+            <div class="phone-text">
+              <span>New Drop</span>
+              <h2>DARK NEON</h2>
+              <p>Wallpaper Pack</p>
+            </div>
+            <div class="phone-card">
+              <span>12 HD wallpapers</span>
+              <strong>$4.99</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="categories">
+      <h2>Shop by style</h2>
+      <p class="muted">Pick a vibe and find wallpapers that match your phone.</p>
+      <div class="categories">
+        <div class="category">Dark Neon</div>
+        <div class="category">Cars</div>
+        <div class="category">Horror</div>
+        <div class="category">Luxury Minimal</div>
+      </div>
+    </section>
+
+    <section id="packs">
+      <h2>Featured wallpaper packs</h2>
+      <p class="muted">Start with one pack, then add more drops weekly.</p>
+
+      <div class="packs">
+        <div class="card">
+          <div class="preview p1">
+            <span>Best Seller</span>
+            <div>
+              <h3>Dark Neon Pack</h3>
+              <p>4K Phone Wallpapers</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>Bright neon city wallpapers with dark colors, rain, glow, and night vibes.</p>
+            <span class="price">$4.99</span>
+            <a class="btn" href="https://your-gumroad-link.com/dark-neon-pack" target="_blank">Buy Pack</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="preview p2">
+            <span>Automotive</span>
+            <div>
+              <h3>Car Culture Pack</h3>
+              <p>4K Phone Wallpapers</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>Dark car wallpapers with street racing, garage, muscle car, and JDM-inspired looks.</p>
+            <span class="price">$4.99</span>
+            <a class="btn" href="https://your-gumroad-link.com/car-culture-pack" target="_blank">Buy Pack</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="preview p3">
+            <span>Cinematic</span>
+            <div>
+              <h3>Horror Cinematic Pack</h3>
+              <p>4K Phone Wallpapers</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>Creepy horror wallpapers with fog, shadows, monsters, masks, and dark movie-style scenes.</p>
+            <span class="price">$5.99</span>
+            <a class="btn" href="https://your-gumroad-link.com/horror-cinematic-pack" target="_blank">Buy Pack</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="preview p4">
+            <span>Clean Look</span>
+            <div>
+              <h3>Luxury Minimal Pack</h3>
+              <p>4K Phone Wallpapers</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>Black, gold, chrome, marble, and clean luxury wallpapers for a premium phone look.</p>
+            <span class="price">$3.99</span>
+            <a class="btn" href="https://your-gumroad-link.com/luxury-minimal-pack" target="_blank">Buy Pack</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="how">
+        <h2>How it works</h2>
+        <p class="muted">Simple digital product store flow.</p>
+        <div class="steps">
+          <div class="step"><div class="number">1</div><p>Choose a wallpaper pack</p></div>
+          <div class="step"><div class="number">2</div><p>Buy securely online</p></div>
+          <div class="step"><div class="number">3</div><p>Download and save to your phone</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta">
+        <h2>Drop new wallpapers every week.</h2>
+        <p class="muted">Build hype with limited drops, bundle packs, seasonal designs, and exclusive collections.</p>
+        <a class="btn" href="#packs">Shop Wallpaper Packs</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 WallDrop. All rights reserved.</footer>
+</body>
+</html>
